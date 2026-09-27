@@ -1,33 +1,28 @@
 import { useState } from "react";
 
 function PdfSummarizer() {
-
   const [fileName, setFileName] = useState("");
   const [summary, setSummary] = useState("");
 
-  const handleFile = (e) => {
+  const handleFile = (event) => {
+    const file = event.target.files[0];
 
-    const file = e.target.files[0];
-
-    if (file) {
-
-      setFileName(file.name);
-
-      setSummary(
-        "AI Summary:\n\nThis document discusses important educational concepts, coding practices, and key learning strategies for students."
-      );
+    if (!file) {
+      return;
     }
+
+    setFileName(file.name);
+    setSummary(
+      "Sample summary:\n\nThis document contains useful study notes and learning concepts."
+    );
   };
 
   return (
-
-    <div className="max-w-4xl mx-auto px-6 pb-20">
-
-      <div className="bg-slate-800 p-8 rounded-3xl">
-
-        <h1 className="text-3xl font-bold text-purple-400 mb-6">
+    <section className="mx-auto max-w-4xl px-6 pb-20">
+      <div className="rounded-3xl bg-slate-800 p-8">
+        <h2 className="mb-6 text-3xl font-bold text-purple-400">
           PDF Notes Summarizer
-        </h1>
+        </h2>
 
         <input
           type="file"
@@ -36,18 +31,13 @@ function PdfSummarizer() {
           className="text-white"
         />
 
-        <div className="mt-4 text-slate-400">
-          {fileName}
-        </div>
+        {fileName && <p className="mt-4 text-slate-400">{fileName}</p>}
 
-        <div className="mt-8 bg-slate-900 p-6 rounded-2xl whitespace-pre-wrap text-slate-300">
+        <div className="mt-8 whitespace-pre-wrap rounded-2xl bg-slate-900 p-6 text-slate-300">
           {summary}
         </div>
-
       </div>
-
-    </div>
-
+    </section>
   );
 }
 

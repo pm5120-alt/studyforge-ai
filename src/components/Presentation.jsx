@@ -1,67 +1,43 @@
 function Presentation() {
-
   return (
-
-    <div className="max-w-5xl mx-auto px-6 pb-20">
-
-      <div className="bg-slate-800 p-10 rounded-3xl">
-
-        <h1 className="text-4xl font-bold text-purple-400 mb-8">
+    <section id="about" className="mx-auto max-w-5xl px-6 pb-20">
+      <div className="rounded-3xl bg-slate-800 p-10">
+        <h2 className="mb-8 text-4xl font-bold text-purple-400">
           Why StudyForge AI?
-        </h1>
+        </h2>
 
-        <div className="grid md:grid-cols-2 gap-8">
-
-          <div className="bg-slate-900 p-6 rounded-2xl">
-            <h2 className="text-2xl font-bold mb-4">
-              Problem
-            </h2>
-
+        <div className="grid gap-8 md:grid-cols-2">
+          <div className="rounded-2xl bg-slate-900 p-6">
+            <h3 className="mb-4 text-2xl font-bold">Problem</h3>
             <p className="text-slate-300">
-              Students struggle with planning studies,
-              understanding coding concepts, and summarizing notes.
+              Students often struggle with planning, coding doubts and
+              handling study notes.
             </p>
           </div>
 
-          <div className="bg-slate-900 p-6 rounded-2xl">
-            <h2 className="text-2xl font-bold mb-4">
-              Solution
-            </h2>
-
+          <div className="rounded-2xl bg-slate-900 p-6">
+            <h3 className="mb-4 text-2xl font-bold">Solution</h3>
             <p className="text-slate-300">
-              StudyForge AI uses AI-powered tools to help students
-              learn faster and more effectively.
+              StudyForge puts a few useful study tools together in one place.
             </p>
           </div>
 
-          <div className="bg-slate-900 p-6 rounded-2xl">
-            <h2 className="text-2xl font-bold mb-4">
-              Features
-            </h2>
-
+          <div className="rounded-2xl bg-slate-900 p-6">
+            <h3 className="mb-4 text-2xl font-bold">Features</h3>
             <p className="text-slate-300">
-              AI Chat, Study Planner, PDF Summarizer,
-              Coding Assistant, and Smart Learning Tools.
+              Chat, study planning, PDF notes and simple learning tools.
             </p>
           </div>
 
-          <div className="bg-slate-900 p-6 rounded-2xl">
-            <h2 className="text-2xl font-bold mb-4">
-              Future Scope
-            </h2>
-
+          <div className="rounded-2xl bg-slate-900 p-6">
+            <h3 className="mb-4 text-2xl font-bold">Future Ideas</h3>
             <p className="text-slate-300">
-              Voice AI, real-time tutoring, AI quizzes,
-              and personalized learning analytics.
+              Real AI responses, quizzes, voice support and progress tracking.
             </p>
           </div>
-
         </div>
-
       </div>
-
-    </div>
-
+    </section>
   );
 }
 

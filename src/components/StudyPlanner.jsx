@@ -1,77 +1,55 @@
 import { useState } from "react";
 
 function StudyPlanner() {
-
   const [goal, setGoal] = useState("");
   const [plan, setPlan] = useState("");
 
   const generatePlan = () => {
-
-    if (!goal) {
+    if (!goal.trim()) {
       setPlan("Please enter a goal.");
       return;
     }
 
-    setPlan(
-`STUDY PLAN FOR ${goal}
+    const newPlan =
+      "STUDY PLAN FOR " + goal +
+      "\n\nMonday:\n- Learn concepts\n- Watch tutorials" +
+      "\n\nTuesday:\n- Practice problems" +
+      "\n\nWednesday:\n- Revision" +
+      "\n\nThursday:\n- Mock tests" +
+      "\n\nFriday:\n- Project practice" +
+      "\n\nSaturday:\n- Work on weak topics" +
+      "\n\nSunday:\n- Full revision";
 
-Monday:
-- Learn concepts
-- Watch tutorials
-
-Tuesday:
-- Practice problems
-
-Wednesday:
-- Revision
-
-Thursday:
-- Mock tests
-
-Friday:
-- Project practice
-
-Saturday:
-- Weak topic improvement
-
-Sunday:
-- Full revision`
-    );
+    setPlan(newPlan);
   };
 
   return (
-
-    <div className="max-w-4xl mx-auto px-6 pb-20">
-
-      <div className="bg-slate-800 p-8 rounded-3xl">
-
-        <h1 className="text-3xl font-bold text-purple-400 mb-6">
+    <section className="mx-auto max-w-4xl px-6 pb-20">
+      <div className="rounded-3xl bg-slate-800 p-8">
+        <h2 className="mb-6 text-3xl font-bold text-purple-400">
           Study Planner
-        </h1>
+        </h2>
 
         <input
           type="text"
-          placeholder="Example: Learn React in 30 days"
           value={goal}
-          onChange={(e) => setGoal(e.target.value)}
-          className="w-full bg-slate-900 text-white p-4 rounded-2xl outline-none"
+          onChange={(event) => setGoal(event.target.value)}
+          placeholder="Example: Learn React in 30 days"
+          className="w-full rounded-2xl bg-slate-900 p-4 text-white outline-none"
         />
 
         <button
           onClick={generatePlan}
-          className="mt-5 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-2xl"
+          className="mt-5 rounded-2xl bg-purple-600 px-6 py-3 hover:bg-purple-700"
         >
           Generate Plan
         </button>
 
-        <div className="mt-8 bg-slate-900 p-6 rounded-2xl whitespace-pre-wrap text-slate-300">
+        <div className="mt-8 whitespace-pre-wrap rounded-2xl bg-slate-900 p-6 text-slate-300">
           {plan}
         </div>
-
       </div>
-
-    </div>
-
+    </section>
   );
 }
 
