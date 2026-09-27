@@ -1,98 +1,59 @@
 import { useState } from "react";
 
 function ChatBox() {
-
   const [message, setMessage] = useState("");
   const [response, setResponse] = useState("");
 
-  const handleSubmit = async () => {
-
-    if (!message) {
+  const handleSubmit = () => {
+    if (!message.trim()) {
       setResponse("Please enter a question.");
       return;
     }
 
-    const lower = message.toLowerCase();
+    const question = message.toLowerCase();
 
-    if (lower.includes("ai")) {
-
+    if (question.includes("ai")) {
+      setResponse("Artificial Intelligence is technology that lets machines do tasks that normally need human intelligence.");
+    } else if (question.includes("recursion")) {
+      setResponse("Recursion is when a function calls itself until a stopping condition is reached.");
+    } else if (question.includes("study plan")) {
       setResponse(
-        "Artificial Intelligence (AI) is technology that enables machines to simulate human intelligence like learning, reasoning, and problem-solving."
+        "Monday: DSA\nTuesday: Web Development\nWednesday: AI Basics\nThursday: Revision\nFriday: Projects"
       );
-
-    } else if (lower.includes("recursion")) {
-
-      setResponse(
-        "Recursion is a programming technique where a function calls itself repeatedly until a condition is met."
-      );
-
-    } else if (lower.includes("study plan")) {
-
-      setResponse(
-        "Study Plan:\n\nMonday: DSA\nTuesday: Web Development\nWednesday: AI Basics\nThursday: Revision\nFriday: Projects"
-      );
-
-    } else if (lower.includes("javascript")) {
-
-      setResponse(
-        "JavaScript is a programming language used to make websites interactive and dynamic."
-      );
-
-    } else if (lower.includes("react")) {
-
-      setResponse(
-        "React is a JavaScript library used for building fast and interactive user interfaces."
-      );
-
+    } else if (question.includes("javascript")) {
+      setResponse("JavaScript is used to add logic and interaction to websites.");
+    } else if (question.includes("react")) {
+      setResponse("React is a JavaScript library used to build user interfaces.");
     } else {
-
-      setResponse(
-        "StudyForge AI is processing your request intelligently."
-      );
-
+      setResponse("I do not have a specific answer for that yet. Try asking about AI, React, JavaScript or recursion.");
     }
   };
 
   return (
-
-    <div className="max-w-4xl mx-auto px-6 pb-20">
-
-      <div className="bg-slate-800 p-8 rounded-3xl">
-
-        <h1 className="text-3xl font-bold text-purple-400 mb-6">
-          AI Assistant
-        </h1>
+    <section className="mx-auto max-w-4xl px-6 pb-20">
+      <div className="rounded-3xl bg-slate-800 p-8">
+        <h2 className="mb-6 text-3xl font-bold text-purple-400">AI Assistant</h2>
 
         <textarea
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Ask anything..."
-          className="w-full h-40 bg-slate-900 text-white p-4 rounded-2xl outline-none"
+          onChange={(event) => setMessage(event.target.value)}
+          placeholder="Ask a study question..."
+          className="h-40 w-full rounded-2xl bg-slate-900 p-4 text-white outline-none"
         />
 
         <button
           onClick={handleSubmit}
-          className="mt-5 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-2xl"
+          className="mt-5 rounded-2xl bg-purple-600 px-6 py-3 hover:bg-purple-700"
         >
-          Ask AI
+          Ask
         </button>
 
-        <div className="mt-8 bg-slate-900 p-6 rounded-2xl">
-
-          <h2 className="text-xl font-bold mb-4">
-            Response
-          </h2>
-
-          <p className="text-slate-300 whitespace-pre-wrap">
-            {response}
-          </p>
-
+        <div className="mt-8 rounded-2xl bg-slate-900 p-6">
+          <h3 className="mb-4 text-xl font-bold">Response</h3>
+          <p className="whitespace-pre-wrap text-slate-300">{response}</p>
         </div>
-
       </div>
-
-    </div>
-
+    </section>
   );
 }
 
